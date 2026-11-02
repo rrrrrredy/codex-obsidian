@@ -1,0 +1,18 @@
+{"timestamp":"2026-01-15T09:00:00Z","type":"session_meta","payload":{"id":"demo-main","title":"给本地文档搜索增加 TXT 支持","timestamp":"2026-01-15T09:00:00Z"}}
+{"timestamp":"2026-01-15T09:00:01Z","type":"turn_context","payload":{"turn_id":"turn-one"}}
+{"timestamp":"2026-01-15T09:00:02Z","type":"response_item","payload":{"type":"message","role":"user","content":[{"type":"input_text","text":"把 TXT 文件也纳入本地文档搜索，已有 Markdown 的结果顺序保持不变。"}]}}
+{"timestamp":"2026-01-15T09:00:03Z","type":"response_item","payload":{"type":"message","role":"assistant","content":[{"type":"output_text","text":"先复用索引入口，检索部分不用改；检查导入器是否依赖 Markdown 元数据。"}]}}
+{"timestamp":"2026-01-15T09:01:00Z","type":"response_item","payload":{"type":"function_call","name":"exec_command","call_id":"call-one","arguments":"{\"cmd\":\"node examples/import-demo.mjs\"}"}}
+{"timestamp":"2026-01-15T09:01:01Z","type":"response_item","payload":{"type":"function_call_output","call_id":"call-one","output":"exit_code: 1\nTXT sample failed: heading metadata is missing"}}
+{"timestamp":"2026-01-15T09:02:00Z","type":"response_item","payload":{"type":"message","role":"assistant","content":[{"type":"output_text","text":"失败发生在读取阶段，TXT 没有 Markdown 标题字段。改为按扩展名选择读取器，随后进入同一个索引入口。"}]}}
+{"timestamp":"2026-01-15T10:00:00Z","type":"turn_context","payload":{"turn_id":"turn-two"}}
+{"timestamp":"2026-01-15T10:00:01Z","type":"response_item","payload":{"type":"message","role":"user","content":[{"type":"input_text","text":"继续"}]}}
+{"timestamp":"2026-01-15T10:00:01.500Z","type":"event_msg","payload":{"type":"user_message","message":"继续"}}
+{"timestamp":"2026-01-15T10:01:00Z","type":"response_item","payload":{"type":"custom_tool_call","name":"apply_patch","call_id":"call-two","input":"Add a TXT reader before the shared index stage."}}
+{"timestamp":"2026-01-15T10:01:01Z","type":"response_item","payload":{"type":"custom_tool_call_output","call_id":"call-two","output":"Updated src/readers/txt.mjs"}}
+{"timestamp":"2026-01-15T10:02:00Z","type":"response_item","payload":{"type":"function_call","name":"exec_command","call_id":"call-three","arguments":"{\"cmd\":\"node examples/import-demo.mjs\"}"}}
+{"timestamp":"2026-01-15T10:02:01Z","type":"response_item","payload":{"type":"function_call_output","call_id":"call-three","output":"exit_code: 0\nTXT imported. Existing Markdown result order unchanged."}}
+{"timestamp":"2026-01-15T10:03:00Z","type":"response_item","payload":{"type":"message","role":"assistant","content":[{"type":"output_text","text":"TXT 样例已可搜索，原有 Markdown 结果顺序未变。读取器分开，索引和检索继续共用。"}]}}
+{"timestamp":"2026-01-15T15:59:00Z","type":"turn_context","payload":{"turn_id":"turn-three"}}
+{"timestamp":"2026-01-15T15:59:01Z","type":"response_item","payload":{"type":"message","role":"user","content":[{"type":"input_text","text":"继续"}]}}
+{"timestamp":"2026-01-15T15:59:02Z","type":"response_item","payload":{"type":"message","role":"assistant","content":[{"type":"output_text","text":"整理本次修改：原先误把读取格式与索引方式当作同一件事；下一次增加格式时，先检查输入字段，再决定复用范围。"}]}}

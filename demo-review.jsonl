@@ -1,0 +1,4 @@
+{"timestamp":"2026-01-15T16:01:00Z","type":"session_meta","payload":{"id":"demo-review","parent_thread_id":"demo-main","title":"复查格式适配的项目说明","timestamp":"2026-01-15T16:01:00Z"}}
+{"timestamp":"2026-01-15T16:01:01Z","type":"turn_context","payload":{"turn_id":"review-one"}}
+{"timestamp":"2026-01-15T16:01:02Z","type":"response_item","payload":{"type":"message","role":"user","content":[{"type":"input_text","text":"检查项目说明是否写清 TXT 支持的范围。"}]}}
+{"timestamp":"2026-01-15T16:02:00Z","type":"response_item","payload":{"type":"message","role":"assistant","content":[{"type":"output_text","text":"说明应区分读取器与索引；当前只验证了示例输入，新增格式的说明不能泛化到所有文档类型。"}]}}

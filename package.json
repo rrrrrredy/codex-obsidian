@@ -1,0 +1,13 @@
+{
+  "name": "codex-obsidian",
+  "version": "1.0.0",
+  "description": "A Codex skill for a readable, traceable Obsidian work archive.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "check": "node --check collect.mjs"
+  }
+}
