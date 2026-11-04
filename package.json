@@ -1,13 +1,13 @@
 {
-  "name": "codex-obsidian",
+  "name": "agent-obsidian",
   "version": "1.0.0",
-  "description": "A Codex skill for a readable, traceable Obsidian work archive.",
+  "description": "A general method for turning AI agent work into linked Obsidian notes, with a Codex example.",
   "type": "module",
   "license": "MIT",
   "engines": {
     "node": ">=20"
   },
   "scripts": {
-    "check": "node --check collect.mjs"
+    "check": "node --check examples/codex/collect.mjs"
   }
 }

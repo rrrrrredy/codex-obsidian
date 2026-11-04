@@ -9,10 +9,10 @@ import {parseArgs} from 'node:util';
 const {values}=parseArgs({options:{
   source:{type:'string',multiple:true},out:{type:'string'},
   timezone:{type:'string',default:Intl.DateTimeFormat().resolvedOptions().timeZone},
-  folder:{type:'string',default:'Codex汇总'},help:{type:'boolean'}
+  folder:{type:'string',default:'Agent汇总'},help:{type:'boolean'}
 }});
 if(values.help||!values.out){
-  console.log('node collect.mjs --source /path/to/.codex --out /path/to/work [--timezone Asia/Shanghai] [--folder Codex汇总]');
+  console.log('Codex example: node examples/codex/collect.mjs --source /path/to/.codex --out /path/to/work [--timezone Asia/Shanghai] [--folder Agent汇总]');
   process.exit(values.help?0:1);
 }
 const roots=(values.source??[path.join(os.homedir(),'.codex')]).map(p=>fs.realpathSync(p));
